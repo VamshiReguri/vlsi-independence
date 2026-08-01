@@ -1,0 +1,32 @@
+# === Build outputs / heavy artifacts (do NOT upload) ===
+# OpenROAD Flow Scripts results & logs
+results/
+logs/
+objects/
+reports/
+*.log
+
+# Large layout / DB files
+*.gds
+*.gds.gz
+*.def
+*.odb
+*.lef.gz
+
+# PDKs (huge; never commit)
+pdks/
+sky130*/
+gf180*/
+*.lib
+
+# === Python ===
+__pycache__/
+*.pyc
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# === OS / editor cruft ===
+.DS_Store
+Thumbs.db
+.vscode/
