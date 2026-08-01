@@ -28,3 +28,7 @@
 ## Decision
 Both sources independently point to **digital timing/constraint tooling** as the best entry gap — mature enough to be respected, still imperfect, and squarely in my wheelhouse.
 **Project #1 candidate: SDC linter/validator.**
+
+## Day 1 progress
+- MDPI survey: done. Logged the Yosys "no timing-driven optimization engine" limitation (gate sizing / path balancing / constraint-driven closure) as my lead gap.
+- EuroCDP gap analysis: done. Confirms digital is the most mature domain, so my timing/SDC gap sits in the mature-but-still-imperfect zone — a defensible, reachable first target. Mixed-signal/RF/photonics have bigger gaps but need domain knowledge I don't have yet.
