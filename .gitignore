@@ -19,7 +19,13 @@ sky130*/
 gf180*/
 *.lib
 
-# === Python ===
+# Generated STA reports (reproducible from ORFS + parser)
+sta-experiments/**/reports/*.csv
+sta-experiments/**/reports/*.png
+sta-experiments/**/reports/summary.txt
+sta-experiments/**/reports/opensta_full.rpt
+sta-experiments/**/reports/6_finish.rpt
+sta-experiments/**/reports/report_checks_*.rpt
 __pycache__/
 *.pyc
 .venv/

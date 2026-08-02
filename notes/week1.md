@@ -33,3 +33,23 @@ Both sources independently point to **digital timing/constraint tooling** as the
 - MDPI survey: done. Logged the Yosys "no timing-driven optimization engine" limitation (gate sizing / path balancing / constraint-driven closure) as my lead gap.
 - EuroCDP gap analysis: done. Confirms digital is the most mature domain, so my timing/SDC gap sits in the mature-but-still-imperfect zone — a defensible, reachable first target. Mixed-signal/RF/photonics have bigger gaps but need domain knowledge I don't have yet.
 - Flow bring-up: done. WSL2 + Docker + ORFS installed. Ran `gcd` RTL→GDS on sky130hd; `6_final.gds` produced (953K). Flow path: `~/OpenROAD-flow-scripts/flow`.
+
+## Day 2 progress — STA in the open flow + Python
+- [x] OpenSTA standalone on gcd with hand-written SDC (`sta-experiments/gcd/gcd_hand.sdc`)
+- [x] Saved `report_checks.rpt` + `opensta_full.rpt` (WNS line: `wns max -1.49`)
+- [x] Notebook: `sta-experiments/notebooks/gcd_timing.ipynb` → WNS/TNS chart
+- [ ] Push notebook + SDC to GitHub
+- [ ] ibex flow kicked off (`make DESIGN_CONFIG=./designs/sky130hd/ibex/config.mk`)
+- **gcd post-route timing (from ORFS signoff):**
+
+| Metric | Value |
+|--------|-------|
+| Target clock (`core_clock`) | 1.1 ns |
+| WNS (setup) | -1.48 ns |
+| TNS (setup) | -66.81 ns |
+| Setup violations | 64 |
+| Hold violations | 0 |
+| Min achievable period | 2.58 ns (~388 MHz) |
+
+- **Takeaway:** gcd does not close at the default 1.1 ns target. Critical path is reg-to-reg through datapath subtract/compare logic (`a_reg.out[8]` → `a_reg.out[6]`). This is the baseline for future SDC linter / sta-dash work.
+- **Next (Day 3+):** Run `./run_sta.sh` with Docker up to generate standalone OpenSTA reports; push parsed chart to GitHub; start ibex flow.
