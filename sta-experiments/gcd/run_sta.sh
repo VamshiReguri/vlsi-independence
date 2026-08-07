@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# Run standalone OpenSTA on gcd with hand-written SDC (Day 2).
+# Run standalone OpenSTA on gcd with hand-written SDC.
+# Day 3: override with SDC=gcd_mcp.sdc or SDC=gcd_false.sdc
 # Prerequisites: Docker Desktop + openroad/orfs:latest, gcd flow done.
 
 set -euo pipefail
@@ -17,6 +18,14 @@ RPT_DIR="$SCRIPT_DIR/reports"
 mkdir -p "$RPT_DIR"
 
 SDC="${SDC:-$SCRIPT_DIR/gcd_hand.sdc}"
+# Resolve to absolute path (handles relative SDC=gcd_mcp.sdc from cwd)
+if [[ ! "$SDC" = /* ]]; then
+  if [[ -f "$SCRIPT_DIR/$SDC" ]]; then
+    SDC="$SCRIPT_DIR/$SDC"
+  else
+    SDC="$(cd "$(dirname "$SDC")" && pwd)/$(basename "$SDC")"
+  fi
+fi
 
 for f in "$RESULTS/6_final.v" "$RESULTS/6_final.spef" "$SDC"; do
   if [[ ! -f "$f" ]]; then
@@ -24,6 +33,17 @@ for f in "$RESULTS/6_final.v" "$RESULTS/6_final.spef" "$SDC"; do
     exit 1
   fi
 done
+
+# Map host SDC → /work/... for Docker (must live under repo root)
+case "$SDC" in
+  "$REPO_ROOT"/*) SDC_IN_DOCKER="/work/${SDC#"$REPO_ROOT"/}" ;;
+  *)
+    echo "ERROR: SDC must be under repo root for Docker mount: $SDC" >&2
+    exit 1
+    ;;
+esac
+
+echo "Using SDC: $SDC"
 
 run_sta() {
   export NETLIST="$RESULTS/6_final.v"
@@ -46,7 +66,7 @@ else
     bash -c "
       source /OpenROAD-flow-scripts/env.sh
       export NETLIST=/OpenROAD-flow-scripts/flow/results/${PLATFORM}/${DESIGN}/${VARIANT}/6_final.v
-      export SDC=/work/sta-experiments/gcd/gcd_hand.sdc
+      export SDC=${SDC_IN_DOCKER}
       export SPEF=/OpenROAD-flow-scripts/flow/results/${PLATFORM}/${DESIGN}/${VARIANT}/6_final.spef
       export LIBERTY=/OpenROAD-flow-scripts/flow/platforms/${PLATFORM}/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
       sta /work/sta-experiments/gcd/run_sta.tcl
