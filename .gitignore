@@ -32,6 +32,9 @@ __pycache__/
 venv/
 .ipynb_checkpoints/
 
+# Local study notes (keep on disk, not in git)
+notes/day3_explanation.md
+
 # === OS / editor cruft ===
 .DS_Store
 Thumbs.db

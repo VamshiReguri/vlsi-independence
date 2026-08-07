@@ -74,7 +74,7 @@ Both sources independently point to **digital timing/constraint tooling** as the
 
 ## Day 3 progress — STA fundamentals, re-anchored
 
-- Full walkthrough: [`notes/day3_explanation.md`](day3_explanation.md) (also at `C:\Users\regur\Downloads\day3_explanation.md`)
+- Full walkthrough (local only, not in git): `C:\Users\regur\Downloads\day3_explanation.md`
 - Baseline frozen: `sta-experiments/gcd/reports/baseline/` (WNS −1.495 ns)
 - SDC variants ready: `gcd_mcp.sdc` (multicycle), `gcd_false.sdc` (false path — **this run**)
 - `run_sta.sh` now honors `SDC=` under Docker
