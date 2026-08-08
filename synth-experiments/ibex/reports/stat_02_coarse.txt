@@ -1,0 +1,42 @@
+
+7. Printing statistics.
+
+=== ibex_core ===
+
+        +----------Local Count, excluding submodules.
+        | 
+     2231 wires
+    23784 wire bits
+     1265 public wires
+    19649 public wire bits
+       30 ports
+      264 port bits
+     1533 cells
+       16   $adff
+       73   $adffe
+       14   $alu
+      155   $and
+        4   $bmux
+        1   $demux
+       16   $dffe
+        1   $dlatch
+      313   $eq
+       16   $logic_and
+       37   $logic_not
+       19   $logic_or
+        1   $macc_v2
+        1   $mem_v2
+      432   $mux
+       29   $ne
+       60   $not
+       71   $or
+       99   $pmux
+       23   $reduce_and
+       19   $reduce_bool
+       90   $reduce_or
+       32   $scopeinfo
+        2   $sdffce
+        1   $shl
+        1   $sshr
+        7   $xor
+

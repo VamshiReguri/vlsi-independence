@@ -1,0 +1,774 @@
+
+5. Printing statistics.
+
+=== ibex_fetch_fifo$ibex_core.if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      154 wires
+     1160 wire bits
+       41 public wires
+      555 public wire bits
+       15 ports
+      171 port bits
+      135 cells
+        1   $add
+        1   $aldff
+       27   $and
+       40   $buf
+        7   $dff
+        1   $logic_not
+       28   $mux
+        2   $ne
+       17   $not
+       11   $or
+
+=== ibex_csr$ibex_core.cs_registers_i.u_cpuctrl_csr ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       12 wires
+       37 wire bits
+        7 public wires
+       22 public wire bits
+        6 ports
+       16 port bits
+        5 cells
+        1   $aldff
+        2   $buf
+        1   $logic_not
+        1   $mux
+
+=== ibex_counter$ibex_core.cs_registers_i.minstret_counter_i ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       28 wires
+      941 wire bits
+       13 public wires
+      422 public wire bits
+        7 ports
+      101 port bits
+       11 cells
+        1   $add
+        1   $aldff
+        3   $buf
+        1   $logic_not
+        4   $mux
+        1   $or
+
+=== ibex_counter$ibex_core.cs_registers_i.mcycle_counter_i ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       28 wires
+      941 wire bits
+       13 public wires
+      422 public wire bits
+        7 ports
+      101 port bits
+       11 cells
+        1   $add
+        1   $aldff
+        3   $buf
+        1   $logic_not
+        4   $mux
+        1   $or
+
+=== ibex_csr$ibex_core.cs_registers_i.u_mstack_cause_csr ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       12 wires
+       37 wire bits
+        7 public wires
+       22 public wire bits
+        6 ports
+       16 port bits
+        5 cells
+        1   $aldff
+        2   $buf
+        1   $logic_not
+        1   $mux
+
+=== ibex_csr$ibex_core.cs_registers_i.u_mstack_epc_csr ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       12 wires
+      167 wire bits
+        7 public wires
+      100 public wire bits
+        6 ports
+       68 port bits
+        5 cells
+        1   $aldff
+        2   $buf
+        1   $logic_not
+        1   $mux
+
+=== ibex_csr$ibex_core.cs_registers_i.u_mstack_csr ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       12 wires
+       22 wire bits
+        7 public wires
+       13 public wire bits
+        6 ports
+       10 port bits
+        5 cells
+        1   $aldff
+        2   $buf
+        1   $logic_not
+        1   $mux
+
+=== ibex_csr$ibex_core.cs_registers_i.u_dscratch1_csr ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       12 wires
+      167 wire bits
+        7 public wires
+      100 public wire bits
+        6 ports
+       68 port bits
+        5 cells
+        1   $aldff
+        2   $buf
+        1   $logic_not
+        1   $mux
+
+=== ibex_csr$ibex_core.cs_registers_i.u_dscratch0_csr ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       12 wires
+      167 wire bits
+        7 public wires
+      100 public wire bits
+        6 ports
+       68 port bits
+        5 cells
+        1   $aldff
+        2   $buf
+        1   $logic_not
+        1   $mux
+
+=== ibex_csr$ibex_core.cs_registers_i.u_depc_csr ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       12 wires
+      167 wire bits
+        7 public wires
+      100 public wire bits
+        6 ports
+       68 port bits
+        5 cells
+        1   $aldff
+        2   $buf
+        1   $logic_not
+        1   $mux
+
+=== ibex_csr$ibex_core.cs_registers_i.u_dcsr_csr ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       12 wires
+      167 wire bits
+        7 public wires
+      100 public wire bits
+        6 ports
+       68 port bits
+        5 cells
+        1   $aldff
+        2   $buf
+        1   $logic_not
+        1   $mux
+
+=== ibex_csr$ibex_core.cs_registers_i.u_mtvec_csr ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       12 wires
+      167 wire bits
+        7 public wires
+      100 public wire bits
+        6 ports
+       68 port bits
+        5 cells
+        1   $aldff
+        2   $buf
+        1   $logic_not
+        1   $mux
+
+=== ibex_csr$ibex_core.cs_registers_i.u_mtval_csr ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       12 wires
+      167 wire bits
+        7 public wires
+      100 public wire bits
+        6 ports
+       68 port bits
+        5 cells
+        1   $aldff
+        2   $buf
+        1   $logic_not
+        1   $mux
+
+=== ibex_csr$ibex_core.cs_registers_i.u_mcause_csr ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       12 wires
+       37 wire bits
+        7 public wires
+       22 public wire bits
+        6 ports
+       16 port bits
+        5 cells
+        1   $aldff
+        2   $buf
+        1   $logic_not
+        1   $mux
+
+=== ibex_csr$ibex_core.cs_registers_i.u_mscratch_csr ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       12 wires
+      167 wire bits
+        7 public wires
+      100 public wire bits
+        6 ports
+       68 port bits
+        5 cells
+        1   $aldff
+        2   $buf
+        1   $logic_not
+        1   $mux
+
+=== ibex_csr$ibex_core.cs_registers_i.u_mie_csr ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       12 wires
+       97 wire bits
+        7 public wires
+       58 public wire bits
+        6 ports
+       40 port bits
+        5 cells
+        1   $aldff
+        2   $buf
+        1   $logic_not
+        1   $mux
+
+=== ibex_csr$ibex_core.cs_registers_i.u_mepc_csr ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       12 wires
+      167 wire bits
+        7 public wires
+      100 public wire bits
+        6 ports
+       68 port bits
+        5 cells
+        1   $aldff
+        2   $buf
+        1   $logic_not
+        1   $mux
+
+=== ibex_csr$ibex_core.cs_registers_i.u_mstatus_csr ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       12 wires
+       37 wire bits
+        7 public wires
+       22 public wire bits
+        6 ports
+       16 port bits
+        5 cells
+        1   $aldff
+        2   $buf
+        1   $logic_not
+        1   $mux
+
+=== ibex_multdiv_fast$ibex_core.ex_block_i.gen_multdiv_fast.multdiv_i ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      307 wires
+     3162 wire bits
+       67 public wires
+      982 public wire bits
+       22 ports
+      380 port bits
+      217 cells
+        1   $add
+        6   $aldff
+       10   $and
+        1   $bmux
+       29   $buf
+       61   $eq
+        2   $logic_and
+       21   $logic_not
+        1   $lt
+        1   $mul
+       46   $mux
+       15   $not
+        3   $or
+       15   $pmux
+        1   $reduce_bool
+        1   $shl
+        1   $sub
+        2   $xor
+
+=== ibex_alu$ibex_core.ex_block_i.alu_i ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      167 wires
+     2164 wire bits
+       66 public wires
+     1408 public wire bits
+       15 ports
+      368 port bits
+      268 cells
+        1   $add
+        3   $and
+      117   $buf
+       93   $eq
+        2   $logic_and
+        2   $logic_not
+       13   $mux
+        6   $not
+        4   $or
+        4   $pmux
+       18   $reduce_or
+        1   $sshr
+        1   $sub
+        3   $xor
+
+=== ibex_controller$ibex_core.id_stage_i.controller_i ===
+
+        +----------Local Count, excluding submodules.
+        | 
+     1312 wires
+     2693 wire bits
+      105 public wires
+      281 public wire bits
+       64 ports
+      231 port bits
+      750 cells
+        1   $add
+        7   $aldff
+       20   $and
+       30   $buf
+      172   $eq
+        8   $logic_and
+       12   $logic_not
+       11   $logic_or
+      437   $mux
+        4   $ne
+        8   $not
+       20   $or
+       19   $pmux
+        1   $reduce_bool
+
+=== ibex_decoder$ibex_core.id_stage_i.decoder_i ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      859 wires
+     1525 wire bits
+       66 public wires
+      441 public wire bits
+       50 ports
+      325 port bits
+        1 memories
+       32 memory bits
+      634 cells
+        2   $and
+       25   $buf
+      313   $eq
+        1   $logic_and
+       25   $logic_not
+        2   $logic_or
+        1   $meminit
+        1   $memrd_v2
+      217   $mux
+        6   $not
+        1   $or
+       33   $pmux
+        3   $reduce_bool
+        4   $reduce_or
+
+=== ibex_compressed_decoder$ibex_core.if_stage_i.compressed_decoder_i ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      229 wires
+     1670 wire bits
+        8 public wires
+       70 public wire bits
+        7 ports
+       69 port bits
+      192 cells
+        3   $buf
+       80   $eq
+       21   $logic_not
+       64   $mux
+        1   $ne
+        2   $not
+       11   $pmux
+        2   $reduce_bool
+        8   $reduce_or
+
+=== ibex_prefetch_buffer$ibex_core.if_stage_i.gen_prefetch_buffer.prefetch_buffer_i ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      140 wires
+      961 wire bits
+       61 public wires
+      537 public wire bits
+       22 ports
+      177 port bits
+      118 cells
+        1   $add
+        5   $aldff
+       28   $and
+       37   $buf
+        2   $dff
+        2   $logic_not
+       11   $mux
+       12   $not
+       18   $or
+        1   $reduce_and
+        1   $reduce_or
+        1 submodules
+        1   ibex_fetch_fifo$ibex_core.if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i
+
+=== ibex_cs_registers$ibex_core.cs_registers_i ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      694 wires
+     8725 wire bits
+      149 public wires
+     5433 public wire bits
+       65 ports
+      650 port bits
+      695 cells
+        2   $aldff
+        7   $and
+        3   $bmux
+      135   $buf
+        2   $demux
+      344   $eq
+        5   $ge
+        1   $gt
+        5   $logic_and
+        4   $logic_not
+        2   $lt
+      143   $mux
+        2   $ne
+       11   $not
+        6   $or
+       11   $pmux
+        3   $reduce_bool
+        9   $reduce_or
+       17 submodules
+        1   ibex_counter$ibex_core.cs_registers_i.mcycle_counter_i
+        1   ibex_counter$ibex_core.cs_registers_i.minstret_counter_i
+        1   ibex_csr$ibex_core.cs_registers_i.u_cpuctrl_csr
+        1   ibex_csr$ibex_core.cs_registers_i.u_dcsr_csr
+        1   ibex_csr$ibex_core.cs_registers_i.u_depc_csr
+        1   ibex_csr$ibex_core.cs_registers_i.u_dscratch0_csr
+        1   ibex_csr$ibex_core.cs_registers_i.u_dscratch1_csr
+        1   ibex_csr$ibex_core.cs_registers_i.u_mcause_csr
+        1   ibex_csr$ibex_core.cs_registers_i.u_mepc_csr
+        1   ibex_csr$ibex_core.cs_registers_i.u_mie_csr
+        1   ibex_csr$ibex_core.cs_registers_i.u_mscratch_csr
+        1   ibex_csr$ibex_core.cs_registers_i.u_mstack_cause_csr
+        1   ibex_csr$ibex_core.cs_registers_i.u_mstack_csr
+        1   ibex_csr$ibex_core.cs_registers_i.u_mstack_epc_csr
+        1   ibex_csr$ibex_core.cs_registers_i.u_mstatus_csr
+        1   ibex_csr$ibex_core.cs_registers_i.u_mtval_csr
+        1   ibex_csr$ibex_core.cs_registers_i.u_mtvec_csr
+
+=== ibex_register_file_ff$ibex_core.gen_regfile_ff.register_file_i ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      239 wires
+     4434 wire bits
+       16 public wires
+     2165 public wire bits
+       11 ports
+      116 port bits
+      168 cells
+       31   $aldff
+        2   $bmux
+        7   $buf
+       31   $eq
+       31   $logic_not
+        2   $lt
+       64   $mux
+
+=== ibex_wb_stage$ibex_core.wb_stage_i ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       39 wires
+      361 wire bits
+       32 public wires
+      323 public wire bits
+       26 ports
+      221 port bits
+       27 cells
+        4   $and
+       20   $buf
+        1   $mux
+        1   $not
+        1   $reduce_or
+
+=== ibex_load_store_unit$ibex_core.load_store_unit_i ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      500 wires
+     2296 wire bits
+       57 public wires
+      559 public wire bits
+       29 ports
+      250 port bits
+      346 cells
+       10   $aldff
+       10   $and
+       24   $buf
+       88   $eq
+        2   $logic_and
+       55   $logic_not
+        4   $logic_or
+      112   $mux
+       10   $not
+        6   $or
+       19   $pmux
+        3   $reduce_bool
+        3   $reduce_or
+
+=== ibex_ex_block$ibex_core.ex_block_i ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       50 wires
+      985 wire bits
+       42 public wires
+      879 public wire bits
+       26 ports
+      447 port bits
+       19 cells
+       11   $buf
+        5   $mux
+        1   $not
+        1   $or
+        1   $reduce_or
+        2 submodules
+        1   ibex_alu$ibex_core.ex_block_i.alu_i
+        1   ibex_multdiv_fast$ibex_core.ex_block_i.gen_multdiv_fast.multdiv_i
+
+=== ibex_id_stage$ibex_core.id_stage_i ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      551 wires
+     2221 wire bits
+      197 public wires
+     1453 public wire bits
+      111 ports
+      873 port bits
+      287 cells
+        4   $aldff
+       23   $and
+       70   $buf
+       16   $eq
+        2   $logic_and
+        6   $logic_not
+        6   $logic_or
+      101   $mux
+       38   $not
+       10   $or
+       10   $pmux
+        1   $reduce_bool
+        2 submodules
+        1   ibex_controller$ibex_core.id_stage_i.controller_i
+        1   ibex_decoder$ibex_core.id_stage_i.decoder_i
+
+=== ibex_if_stage$ibex_core.if_stage_i ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      141 wires
+     1211 wire bits
+       88 public wires
+      818 public wire bits
+       45 ports
+      442 port bits
+       84 cells
+        2   $aldff
+        7   $and
+       40   $buf
+        8   $dff
+        7   $eq
+        3   $logic_not
+        8   $mux
+        4   $not
+        3   $or
+        2   $pmux
+        2 submodules
+        1   ibex_compressed_decoder$ibex_core.if_stage_i.compressed_decoder_i
+        1   ibex_prefetch_buffer$ibex_core.if_stage_i.gen_prefetch_buffer.prefetch_buffer_i
+
+=== prim_clock_gating$ibex_core.core_clock_gate_i ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       17 wires
+       17 wire bits
+        5 public wires
+        5 public wire bits
+        4 ports
+        4 port bits
+        8 cells
+        1   $and
+        1   $buf
+        1   $dlatch
+        1   $logic_not
+        3   $mux
+        1   $or
+
+=== ibex_core ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      220 wires
+     1995 wire bits
+      196 public wires
+     1960 public wire bits
+       30 ports
+      264 port bits
+       50 cells
+        2   $aldff
+        4   $and
+       28   $buf
+        2   $logic_not
+        2   $mux
+        4   $not
+        8   $or
+        8 submodules
+        1   ibex_cs_registers$ibex_core.cs_registers_i
+        1   ibex_ex_block$ibex_core.ex_block_i
+        1   ibex_id_stage$ibex_core.id_stage_i
+        1   ibex_if_stage$ibex_core.if_stage_i
+        1   ibex_load_store_unit$ibex_core.load_store_unit_i
+        1   ibex_register_file_ff$ibex_core.gen_regfile_ff.register_file_i
+        1   ibex_wb_stage$ibex_core.wb_stage_i
+        1   prim_clock_gating$ibex_core.core_clock_gate_i
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+     4095 ibex_core
+      695 ibex_cs_registers$ibex_core.cs_registers_i
+       11   ibex_counter$ibex_core.cs_registers_i.mcycle_counter_i
+       11   ibex_counter$ibex_core.cs_registers_i.minstret_counter_i
+        5   ibex_csr$ibex_core.cs_registers_i.u_cpuctrl_csr
+        5   ibex_csr$ibex_core.cs_registers_i.u_dcsr_csr
+        5   ibex_csr$ibex_core.cs_registers_i.u_depc_csr
+        5   ibex_csr$ibex_core.cs_registers_i.u_dscratch0_csr
+        5   ibex_csr$ibex_core.cs_registers_i.u_dscratch1_csr
+        5   ibex_csr$ibex_core.cs_registers_i.u_mcause_csr
+        5   ibex_csr$ibex_core.cs_registers_i.u_mepc_csr
+        5   ibex_csr$ibex_core.cs_registers_i.u_mie_csr
+        5   ibex_csr$ibex_core.cs_registers_i.u_mscratch_csr
+        5   ibex_csr$ibex_core.cs_registers_i.u_mstack_cause_csr
+        5   ibex_csr$ibex_core.cs_registers_i.u_mstack_csr
+        5   ibex_csr$ibex_core.cs_registers_i.u_mstack_epc_csr
+        5   ibex_csr$ibex_core.cs_registers_i.u_mstatus_csr
+        5   ibex_csr$ibex_core.cs_registers_i.u_mtval_csr
+        5   ibex_csr$ibex_core.cs_registers_i.u_mtvec_csr
+       19 ibex_ex_block$ibex_core.ex_block_i
+      268   ibex_alu$ibex_core.ex_block_i.alu_i
+      217   ibex_multdiv_fast$ibex_core.ex_block_i.gen_multdiv_fast.multdiv_i
+      287 ibex_id_stage$ibex_core.id_stage_i
+      750   ibex_controller$ibex_core.id_stage_i.controller_i
+      634   ibex_decoder$ibex_core.id_stage_i.decoder_i
+       84 ibex_if_stage$ibex_core.if_stage_i
+      192   ibex_compressed_decoder$ibex_core.if_stage_i.compressed_decoder_i
+      118   ibex_prefetch_buffer$ibex_core.if_stage_i.gen_prefetch_buffer.prefetch_buffer_i
+      135     ibex_fetch_fifo$ibex_core.if_stage_i.gen_prefetch_buffer.prefetch_buffer_i.fifo_i
+      346 ibex_load_store_unit$ibex_core.load_store_unit_i
+      168 ibex_register_file_ff$ibex_core.gen_regfile_ff.register_file_i
+       27 ibex_wb_stage$ibex_core.wb_stage_i
+        8 prim_clock_gating$ibex_core.core_clock_gate_i
+
+        +----------Count including submodules.
+        | 
+     5855 wires
+    39232 wire bits
+     1327 public wires
+    19772 public wire bits
+      646 ports
+     5916 port bits
+        1 memories
+       32 memory bits
+        - processes
+     4095 cells
+        7   $add
+       87   $aldff
+      146   $and
+        6   $bmux
+      653   $buf
+        2   $demux
+       17   $dff
+        1   $dlatch
+     1205   $eq
+        5   $ge
+        1   $gt
+       22   $logic_and
+      203   $logic_not
+       23   $logic_or
+        5   $lt
+        1   $meminit
+        1   $memrd_v2
+        1   $mul
+     1278   $mux
+        9   $ne
+      135   $not
+       94   $or
+      124   $pmux
+        1   $reduce_and
+       14   $reduce_bool
+       45   $reduce_or
+        1   $shl
+        1   $sshr
+        2   $sub
+        5   $xor
+        8 submodules
+        1   ibex_cs_registers$ibex_core.cs_registers_i
+        1   ibex_ex_block$ibex_core.ex_block_i
+        1   ibex_id_stage$ibex_core.id_stage_i
+        1   ibex_if_stage$ibex_core.if_stage_i
+        1   ibex_load_store_unit$ibex_core.load_store_unit_i
+        1   ibex_register_file_ff$ibex_core.gen_regfile_ff.register_file_i
+        1   ibex_wb_stage$ibex_core.wb_stage_i
+        1   prim_clock_gating$ibex_core.core_clock_gate_i
+

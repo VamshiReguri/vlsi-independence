@@ -1,0 +1,1 @@
+Yosys wall time: 25 s

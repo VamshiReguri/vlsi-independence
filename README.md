@@ -17,3 +17,4 @@ R&D engineer with hands-on experience in logic synthesis, static timing analysis
 - `notes/` — weekly learning notes and findings
 - `docs/` — technical writeups
 - `sta-experiments/` — STA/SDC experiments and timing-report analysis
+- `synth-experiments/` — Yosys synthesis experiments and RTL→gates analysis

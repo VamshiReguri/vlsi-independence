@@ -92,3 +92,26 @@ Both sources independently point to **digital timing/constraint tooling** as the
 | New worst path | `a_reg.out[8]` → `a_reg.out[6]` | `b_reg.out[3]` → `a_reg.out[15]` |
 
 **Why WNS changed:** Waived the single worst setup path (`a_reg.out[8]` → `a_reg.out[6]`); the next-worst path became WNS, so slack only improved by ~5 ps (−1.495 → −1.490). Capture edge stayed at 1.1 ns (not a multicycle). Lesson: with a cluster of similar datapath violators, one false path barely moves WNS.
+
+
+
+## Day 4 progress — synthesis with Yosys (RTL → gates)
+
+- [x] Source correction: the roadmap's `yosyshq.net/.../yosys_manual.pdf` is **dead (HTTP 500)** and chapter numbering no longer exists. Replacements + what "Ch. 4–6" actually were: `notes/day4-yosys-manual-ch4-6.md`
+- [x] Standalone Yosys synthesis of `ibex_core` → sky130hd: `synth-experiments/ibex/`
+- [x] Committed synth log (`logs/1_yosys_synth.log`) + per-stage `stat` dumps
+- [x] Staged STA: synth / post-place / post-route on one SDC
+- [x] Comparison note: `notes/day4-synth-vs-postplace.md`
+
+### Day 4 results (ibex, `core_clock` = 10.0 ns)
+
+| Stage | Setup WNS | Instances | Area (µm²) |
+|--|--|--|--|
+| Synth (my Yosys script) | −4.887 | 15,307 | 127,250 |
+| Synth (ORFS) | −16.300 | 14,043 | 129,314 |
+| Post-place | **+0.046** | 18,980 | 147,399 |
+| Post-route | **+0.069** | 19,409 | 154,642 |
+
+**Takeaway:** synth-stage WNS is not predictive in this flow — a 16.35 ns swing on a 10 ns clock, and the script with the *worse* synth WNS is the one that closes. ORFS deliberately hands floorplanning an unbuffered, minimum-size netlist (`abc_speed_gia_only` + `REMOVE_ABC_BUFFERS`) and lets the resizer do the drive fixing; the final design carries 1,405 timing-repair buffers that do not exist at synth time. Missing wire load accounts for only ~0.5 ns of the gap. What *does* hold from synth: sequential cell count (1,938 vs 1,939 final, essentially exact), area to within ~20%, and logic structure — my ripple-carry ALU (11 chained `maj3`) vs ORFS's Han-Carlson prefix adder shows up clearly at 48 vs 31 levels.
+
+**Relevance to my lead gap:** this is the "Yosys has no timing-driven optimization engine" limitation from Day 1, measured. Yosys/ABC gets structure and area right and then stops; every bit of timing closure happens in the OpenROAD resizer, with no feedback path back into synthesis.
