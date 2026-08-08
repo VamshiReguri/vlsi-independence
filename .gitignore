@@ -35,6 +35,16 @@ venv/
 # Local study notes (keep on disk, not in git)
 notes/day3_explanation.md
 
+# === Curated synthesis artifacts (small, intentionally committed) ===
+# The blanket logs/ reports/ *.log rules above exist to keep ORFS build output
+# out of git. These are the hand-picked Yosys + STA artifacts the Day 4 note
+# cites, ~745 KB total. Parent dirs must be re-included before their contents,
+# otherwise git never descends into them.
+!synth-experiments/**/logs/
+!synth-experiments/**/logs/**
+!synth-experiments/**/reports/
+!synth-experiments/**/reports/**
+
 # === OS / editor cruft ===
 .DS_Store
 Thumbs.db
