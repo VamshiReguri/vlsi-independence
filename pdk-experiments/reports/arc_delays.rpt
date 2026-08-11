@@ -1,0 +1,129 @@
+OPENROAD: /OpenROAD-flow-scripts/tools/OpenROAD
+OpenSTA 3.1.0  Copyright (c) 2026, Parallax Software, Inc.
+License GPLv3: GNU GPL version 3 <http://gnu.org/licenses/gpl.html>
+
+This is free software, and you are free to change and redistribute it
+under certain conditions; type `show_copying' for details. 
+This program comes with ABSOLUTELY NO WARRANTY; for details type `show_warranty'.
+##LIBERTY /flow/platforms/sky130hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+##POINT slew=0.0531329 cap=0.012873 dir=rise
+Startpoint: A (input port clocked by vclk)
+Endpoint: Y (output port clocked by vclk)
+Path Group: vclk
+Path Type: max
+
+Fanout        Cap       Slew      Delay       Time   Description
+-----------------------------------------------------------------------------------------
+                     0.00000    0.00000    0.00000   clock vclk (rise edge)
+                                0.00000    0.00000   clock network delay (ideal)
+                                0.00000    0.00000 v input external delay
+     1    0.00428    0.05313    0.00000    0.00000 v A (in)
+                     0.05313    0.00000    0.00000 v u0/A (sky130_fd_sc_hd__inv_2)
+     1    0.01287    0.06537    0.07601    0.07601 ^ u0/Y (sky130_fd_sc_hd__inv_2)
+                     0.06537    0.00000    0.07601 ^ Y (out)
+                                           0.07601   data arrival time
+
+                     0.00000   10.00000   10.00000   clock vclk (rise edge)
+                                0.00000   10.00000   clock network delay (ideal)
+                                0.00000   10.00000   clock reconvergence pessimism
+                                0.00000   10.00000   output external delay
+                                          10.00000   data required time
+-----------------------------------------------------------------------------------------
+                                          10.00000   data required time
+                                          -0.07601   data arrival time
+-----------------------------------------------------------------------------------------
+                                           9.92399   slack (MET)
+
+
+##ENDPOINT
+##POINT slew=0.0531329 cap=0.012873 dir=fall
+Startpoint: A (input port clocked by vclk)
+Endpoint: Y (output port clocked by vclk)
+Path Group: vclk
+Path Type: max
+
+Fanout        Cap       Slew      Delay       Time   Description
+-----------------------------------------------------------------------------------------
+                     0.00000    0.00000    0.00000   clock vclk (rise edge)
+                                0.00000    0.00000   clock network delay (ideal)
+                                0.00000    0.00000 ^ input external delay
+     1    0.00464    0.05313    0.00000    0.00000 ^ A (in)
+                     0.05313    0.00000    0.00000 ^ u0/A (sky130_fd_sc_hd__inv_2)
+     1    0.01287    0.03358    0.04870    0.04870 v u0/Y (sky130_fd_sc_hd__inv_2)
+                     0.03358    0.00000    0.04870 v Y (out)
+                                           0.04870   data arrival time
+
+                     0.00000   10.00000   10.00000   clock vclk (rise edge)
+                                0.00000   10.00000   clock network delay (ideal)
+                                0.00000   10.00000   clock reconvergence pessimism
+                                0.00000   10.00000   output external delay
+                                          10.00000   data required time
+-----------------------------------------------------------------------------------------
+                                          10.00000   data required time
+                                          -0.04870   data arrival time
+-----------------------------------------------------------------------------------------
+                                           9.95130   slack (MET)
+
+
+##ENDPOINT
+##POINT slew=0.20 cap=0.05 dir=rise
+Startpoint: A (input port clocked by vclk)
+Endpoint: Y (output port clocked by vclk)
+Path Group: vclk
+Path Type: max
+
+Fanout        Cap       Slew      Delay       Time   Description
+-----------------------------------------------------------------------------------------
+                     0.00000    0.00000    0.00000   clock vclk (rise edge)
+                                0.00000    0.00000   clock network delay (ideal)
+                                0.00000    0.00000 v input external delay
+     1    0.00428    0.20000    0.00000    0.00000 v A (in)
+                     0.20000    0.00000    0.00000 v u0/A (sky130_fd_sc_hd__inv_2)
+     1    0.05000    0.23602    0.25816    0.25816 ^ u0/Y (sky130_fd_sc_hd__inv_2)
+                     0.23602    0.00000    0.25816 ^ Y (out)
+                                           0.25816   data arrival time
+
+                     0.00000   10.00000   10.00000   clock vclk (rise edge)
+                                0.00000   10.00000   clock network delay (ideal)
+                                0.00000   10.00000   clock reconvergence pessimism
+                                0.00000   10.00000   output external delay
+                                          10.00000   data required time
+-----------------------------------------------------------------------------------------
+                                          10.00000   data required time
+                                          -0.25816   data arrival time
+-----------------------------------------------------------------------------------------
+                                           9.74184   slack (MET)
+
+
+##ENDPOINT
+##POINT slew=0.20 cap=0.05 dir=fall
+Startpoint: A (input port clocked by vclk)
+Endpoint: Y (output port clocked by vclk)
+Path Group: vclk
+Path Type: max
+
+Fanout        Cap       Slew      Delay       Time   Description
+-----------------------------------------------------------------------------------------
+                     0.00000    0.00000    0.00000   clock vclk (rise edge)
+                                0.00000    0.00000   clock network delay (ideal)
+                                0.00000    0.00000 ^ input external delay
+     1    0.00464    0.20000    0.00000    0.00000 ^ A (in)
+                     0.20000    0.00000    0.00000 ^ u0/A (sky130_fd_sc_hd__inv_2)
+     1    0.05000    0.12977    0.16076    0.16076 v u0/Y (sky130_fd_sc_hd__inv_2)
+                     0.12977    0.00000    0.16076 v Y (out)
+                                           0.16076   data arrival time
+
+                     0.00000   10.00000   10.00000   clock vclk (rise edge)
+                                0.00000   10.00000   clock network delay (ideal)
+                                0.00000   10.00000   clock reconvergence pessimism
+                                0.00000   10.00000   output external delay
+                                          10.00000   data required time
+-----------------------------------------------------------------------------------------
+                                          10.00000   data required time
+                                          -0.16076   data arrival time
+-----------------------------------------------------------------------------------------
+                                           9.83924   slack (MET)
+
+
+##ENDPOINT
+##DONE

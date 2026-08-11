@@ -115,3 +115,27 @@ Both sources independently point to **digital timing/constraint tooling** as the
 **Takeaway:** synth-stage WNS is not predictive in this flow — a 16.35 ns swing on a 10 ns clock, and the script with the *worse* synth WNS is the one that closes. ORFS deliberately hands floorplanning an unbuffered, minimum-size netlist (`abc_speed_gia_only` + `REMOVE_ABC_BUFFERS`) and lets the resizer do the drive fixing; the final design carries 1,405 timing-repair buffers that do not exist at synth time. Missing wire load accounts for only ~0.5 ns of the gap. What *does* hold from synth: sequential cell count (1,938 vs 1,939 final, essentially exact), area to within ~20%, and logic structure — my ripple-carry ALU (11 chained `maj3`) vs ORFS's Han-Carlson prefix adder shows up clearly at 48 vs 31 levels.
 
 **Relevance to my lead gap:** this is the "Yosys has no timing-driven optimization engine" limitation from Day 1, measured. Yosys/ABC gets structure and area right and then stops; every bit of timing closure happens in the OpenROAD resizer, with no feedback path back into synthesis.
+
+
+
+## Day 5 progress — the PDK: `.lib` (timing) + `.lef` (physical)
+
+- Full walkthrough (local only, not in git): `D:\vlsi-work\day5_explanation.md`
+- New experiment: `pdk-experiments/` — opens one standard cell (`sky130_fd_sc_hd__inv_2`) in **both** PDK views and proves STA delay is just a table lookup.
+- [x] Extracted readable slices from the 12.8 MB liberty + 2.3 MB LEF (`inspect_pdk.sh` → `reports/*.txt`)
+- [x] Reproduced the NLDM delay lookup by hand (bilinear) and confirmed against OpenSTA (`arc_delay.tcl` + `interp_check.py`)
+- [x] Cross-checked that the two files describe the same cell (`.lib` `area` == `.lef` `SIZE`)
+
+### Day 5 results (inv_2 `A→Y` arc, `tt_025C_1v80`)
+
+| input slew (ns) | output load (pF) | arc | predicted (my bilinear) | OpenSTA | Δ |
+|--|--|--|--|--|--|
+| 0.05313 *(grid node)* | 0.01287 *(grid node)* | rise | 0.07601 | 0.07601 | ~3 fs |
+| 0.20 *(off-grid)* | 0.05 *(off-grid)* | rise | 0.25816 | 0.25816 | ~3 fs |
+| 0.20 | 0.05 | fall | 0.16076 | 0.16076 | ~4 fs |
+
+**What `.lib` / `.lef` drive:** liberty = the timing/power *brain* (Yosys `dfflibmap` / `abc -liberty`, OpenSTA `read_liberty`, the resizer); LEF = the physical *body* (SITE rows + cell `SIZE` for placement, pin shapes + `OBS` for routing). Day 2 STA read only liberty + SPEF; Day 4 synth-stage STA additionally `read_lef` + `setRC` precisely because with no placement there are no parasitics, so the LEF's layer geometry is what lets `estimate_parasitics` invent any RC at all.
+
+**Cross-check:** `area : 3.7536` (.lib) == `SIZE 1.380 × 2.720` (.lef) = 3.7536 µm²; `1.380 / 0.460 = 3`, so inv_2 is exactly 3 `unithd` sites wide.
+
+**Relevance to my lead gap:** the delay a linter / timing-analytics tool reasons about is a *deterministic* 2-D interpolation of these characterized tables — verified here to < 0.01 ps. Gate sizing (my north star) is nothing but choosing among inv_1 / inv_2 / inv_4, whose only differences are these `.lib` tables (drive vs. input cap) and `.lef` width — and inv_1→inv_2 is 2× drive at **0×** extra area.
