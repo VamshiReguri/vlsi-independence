@@ -45,6 +45,12 @@ notes/day3_explanation.md
 !synth-experiments/**/reports/
 !synth-experiments/**/reports/**
 
+# Day 5 PDK slices + arc-delay check are tiny (~30 KB) and are the artifacts the
+# day5 writeup cites, so keep them despite the blanket reports/ rule above.
+# (*.lib stays ignored; the extracted cell is saved as inv_2_cell.txt, not .lib.)
+!pdk-experiments/reports/
+!pdk-experiments/reports/**
+
 # === OS / editor cruft ===
 .DS_Store
 Thumbs.db
