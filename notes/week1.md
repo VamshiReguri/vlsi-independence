@@ -139,3 +139,28 @@ Both sources independently point to **digital timing/constraint tooling** as the
 **Cross-check:** `area : 3.7536` (.lib) == `SIZE 1.380 × 2.720` (.lef) = 3.7536 µm²; `1.380 / 0.460 = 3`, so inv_2 is exactly 3 `unithd` sites wide.
 
 **Relevance to my lead gap:** the delay a linter / timing-analytics tool reasons about is a *deterministic* 2-D interpolation of these characterized tables — verified here to < 0.01 ps. Gate sizing (my north star) is nothing but choosing among inv_1 / inv_2 / inv_4, whose only differences are these `.lib` tables (drive vs. input cap) and `.lef` width — and inv_1→inv_2 is 2× drive at **0×** extra area.
+
+
+
+## Day 6 progress — close the loop: full-flow timing across stages
+
+- Full walkthrough (local only, not in git): `D:\vlsi-work\day6_explanation.md`
+- Committed analysis: `notes/day6-full-flow-timing.md`
+- [x] Confirmed ibex reached final GDS (`6_final.gds`, 21 MB; signoff WNS/TNS = 0.00, 0 setup / 0 hold violations, f_max 100.74 MHz)
+- [x] New driver `synth-experiments/ibex/scripts/run_day6.sh` + `sta_fullflow.tcl`: STA on **every** ORFS stage, one SDC per stage, into `reports/fullflow/metrics_fullflow.txt`
+- [x] Filled in the two mid-stages Day 4 skipped (floorplan, CTS) for a complete stage-by-stage table
+- [x] Presentable chart + notebook: `sta-experiments/notebooks/ibex_fullflow_timing.ipynb` → `reports/fullflow/ibex_stage_wns.png`
+
+### Day 6 results (ibex, `core_clock` = 10.0 ns)
+
+| Stage | Clock | Setup WNS | Setup TNS | Hold WNS | f_max |
+|--|--|--:|--:|--:|--:|
+| synth | ideal | −16.3004 | −22482.33 | +0.2265 | 38.02 MHz |
+| floorplan | ideal | −16.2477 | −22387.78 | +0.2265 | 38.10 MHz |
+| place | ideal | **+0.0462** | 0 | +0.2409 | 100.46 MHz |
+| cts | propagated | +0.0011 | 0 | +0.4280 | 100.01 MHz |
+| route | propagated | **+0.0686** | 0 | +0.4284 | 100.74 MHz |
+
+**Takeaway:** timing closure here is a *back-end* event. Floorplan ≈ synth (buffers stripped in `floorplan.tcl`, std cells still unplaced), so the whole −16 ns survives; the OpenROAD resizer at **placement** does 100% of the closure; CTS then trades ~45 ps of setup for hold when the ideal clock becomes a propagated tree (source latency ≈ 1.23 ns, setup skew ≈ +0.14 ns; hold WNS +0.24 → +0.43); routing gives the setup back with real SPEF. Every value cross-checks against ORFS's own per-stage reports and against Day 4.
+
+**Relevance to my lead gap:** this is Day 4's "Yosys has no timing-driven optimization engine" result localized to a single stage transition — synthesis and floorplan hand over an unbuffered netlist at −16 ns, and one back-end step (placement + resizer) closes it. A closure-analytics/orchestration tool only has a real job *after* placement; synth/floorplan slack is not a signal.

@@ -11,7 +11,8 @@ set -eu
 WORK="$HOME/vlsi-day4"
 FLOW="$HOME/OpenROAD-flow-scripts/flow"
 IMAGE="openroad/orfs:latest"
-WIN_SCRIPTS="/mnt/c/Users/regur/Downloads/day04-yosys/scripts"
+# Project root lives on D: after the C: → D: move
+WIN_SCRIPTS="/mnt/d/vlsi-work/vlsi-independence/synth-experiments/ibex/scripts"
 
 YOSYS=/OpenROAD-flow-scripts/tools/install/yosys/bin/yosys
 OPENROAD=/OpenROAD-flow-scripts/tools/install/OpenROAD/bin/openroad
