@@ -1,0 +1,21 @@
+title: vlsi-independence
+description: >-
+  A public build log: open-source EDA, static timing analysis, synthesis,
+  and AI-for-EDA — one week at a time.
+author: Vamshi Reguri
+github_username: VamshiReguri
+
+url: "https://vamshireguri.github.io"
+baseurl: "/vlsi-independence"
+
+theme: minima
+show_excerpts: true
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor

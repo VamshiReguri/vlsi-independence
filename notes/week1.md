@@ -164,3 +164,44 @@ Both sources independently point to **digital timing/constraint tooling** as the
 **Takeaway:** timing closure here is a *back-end* event. Floorplan ≈ synth (buffers stripped in `floorplan.tcl`, std cells still unplaced), so the whole −16 ns survives; the OpenROAD resizer at **placement** does 100% of the closure; CTS then trades ~45 ps of setup for hold when the ideal clock becomes a propagated tree (source latency ≈ 1.23 ns, setup skew ≈ +0.14 ns; hold WNS +0.24 → +0.43); routing gives the setup back with real SPEF. Every value cross-checks against ORFS's own per-stage reports and against Day 4.
 
 **Relevance to my lead gap:** this is Day 4's "Yosys has no timing-driven optimization engine" result localized to a single stage transition — synthesis and floorplan hand over an unbuffered netlist at −16 ns, and one back-end step (placement + resizer) closes it. A closure-analytics/orchestration tool only has a real job *after* placement; synth/floorplan slack is not a signal.
+
+
+
+## Day 7 progress — publish + join the community
+
+- Full walkthrough (local only, not in git): `D:\vlsi-work\day7_explanation.md`
+- [x] **Blog post #1 (510 words)** — "Week 1: open-source STA vs. what I do at work":
+  `docs/_posts/2026-08-15-week1-open-source-sta-vs-what-i-do-at-work.md`, served by GitHub
+  Pages from `docs/` at <https://vamshireguri.github.io/vlsi-independence/>
+- [x] All artifacts pushed; Days 4–7 merged to `master` (they had been sitting on feature
+  branches since Day 4), blog linked from the README
+- [x] Repo cleaned: README rewritten with the week's results and an artifact map, MIT
+  `LICENSE` added, executed-notebook copies (`*_out.ipynb`) gitignored
+- [x] Open-source silicon Slack: joined and introduced myself in `#introductions`
+- [x] Week 2 (SDC linter) roadmap section read → `notes/week2-plan.md`
+
+### Week 1 retrospective
+
+**What shipped:** two designs RTL→GDS on sky130hd (`gcd`, `ibex` — `6_final.gds` for both),
+standalone OpenSTA re-timing of both, a five-stage full-flow timing study with a chart, a
+hand-verified NLDM delay model, three SDC variants with measured ΔWNS, two notebooks, a
+report parser, five committed notes, and a live blog post. Seven commits, one public repo.
+
+**The one result worth remembering:** closure in this flow is a *back-end* event. −16.30 ns
+at synth → +0.046 ns after placement, with floorplan changing nothing. Every downstream
+tooling decision I make should assume synth-stage slack carries no information here.
+
+**What I got wrong / had to correct:**
+- The roadmap's Yosys manual link is dead and its chapter numbering no longer exists
+  (Day 4) — replaced with the current docs and recorded in `notes/day4-yosys-manual-ch4-6.md`.
+- I expected a false path on the worst gcd violator to move WNS meaningfully; it moved it
+  5 ps (Day 3). Cluster violations do not respond to point waivers — a good lesson to
+  encode into the Week 2 linter's messaging.
+- `ltp` must run before `dfflibmap`, or every sequential loop is reported as combinational
+  (208,835 warnings, 15 MB log). Ordering matters more than I assumed in Yosys scripts.
+- Days 4–6 were committed to feature branches and never merged; `master` sat three days
+  stale. Fixed on Day 7 — from now on, merge to `master` the same day.
+
+**Time:** ~22 h, per plan. Heaviest days were 4 and 6 (synthesis + full-flow STA).
+
+**Next:** Week 2 — SDC linter v0.1. Plan in [`week2-plan.md`](week2-plan.md).
