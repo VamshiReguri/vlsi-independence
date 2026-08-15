@@ -32,6 +32,15 @@ __pycache__/
 venv/
 .ipynb_checkpoints/
 
+# Executed notebook copies (`nbconvert --execute --output <name>_out`).
+# The source notebooks are committed; their run outputs are regenerable.
+*_out.ipynb
+
+# Jekyll build output for the docs/ blog (GitHub Pages builds it server-side)
+docs/_site/
+docs/.jekyll-cache/
+Gemfile.lock
+
 # Local study notes (keep on disk, not in git)
 notes/day3_explanation.md
 
