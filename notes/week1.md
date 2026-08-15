@@ -173,8 +173,7 @@ Both sources independently point to **digital timing/constraint tooling** as the
 - [x] **Blog post #1 (510 words)** — "Week 1: open-source STA vs. what I do at work":
   `docs/_posts/2026-08-15-week1-open-source-sta-vs-what-i-do-at-work.md`, served by GitHub
   Pages from `docs/` at <https://vamshireguri.github.io/vlsi-independence/>
-- [x] All artifacts pushed; Days 4–7 merged to `master` (they had been sitting on feature
-  branches since Day 4), blog linked from the README
+- [x] All artifacts pushed and merged to `master` via PR #6; blog linked from the README
 - [x] Repo cleaned: README rewritten with the week's results and an artifact map, MIT
   `LICENSE` added, executed-notebook copies (`*_out.ipynb`) gitignored
 - [x] Open-source silicon Slack: joined and introduced myself in `#introductions`
@@ -199,8 +198,9 @@ tooling decision I make should assume synth-stage slack carries no information h
   encode into the Week 2 linter's messaging.
 - `ltp` must run before `dfflibmap`, or every sequential loop is reported as combinational
   (208,835 warnings, 15 MB log). Ordering matters more than I assumed in Yosys scripts.
-- Days 4–6 were committed to feature branches and never merged; `master` sat three days
-  stale. Fixed on Day 7 — from now on, merge to `master` the same day.
+- The artifacts were all committed and merged during the week, but nothing outside the repo
+  pointed at them: the README still described Day 1 only, and there was no blog. Shipping
+  and *publishing* are separate steps, and Week 1 only did the first until Day 7.
 
 **Time:** ~22 h, per plan. Heaviest days were 4 and 6 (synthesis + full-flow STA).
 
